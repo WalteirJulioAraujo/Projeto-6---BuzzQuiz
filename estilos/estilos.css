@@ -13,6 +13,12 @@
   margin-bottom: 77px;
  }
 
+ .titulo-div{
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+ }
+
  .topo p{
   font-family: 'Roboto', sans-serif;
   font-size: 37px;
@@ -67,7 +73,7 @@
     width:340px;
     height: 181px;
     position: relative;
-    margin-bottom: 19px;
+    margin-bottom: 12px;
 }
 
 .quiz img{
