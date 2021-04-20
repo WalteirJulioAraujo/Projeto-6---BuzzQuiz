@@ -49,12 +49,16 @@
    
  }
 
- .todosQuiz{
+ .todosQuiz, .seusQuiz{
     width:1052px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 auto;
+}
+
+.seusQuiz{
+    margin-bottom: 48px;
 }
 
 .quiz{
@@ -70,7 +74,7 @@
     border-radius: 5px;
 }
 
-.texto{
+.quiz .texto{
     position: absolute;
     font-size: 19px;
     color: #fff;
