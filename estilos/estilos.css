@@ -1,4 +1,55 @@
-.todosQuiz{
+
+ body{
+  font-family: 'Roboto', sans-serif;
+ }
+ .topo{
+  width: 100%;
+  height: 69px;
+  background-color: #EC362D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 77px;
+ }
+
+ .topo p{
+  font-family: 'Roboto', sans-serif;
+  font-size: 37px;
+  color: #ffffff;
+ }
+ .caixa-criar-quizz{
+   width: 1052px;
+   height: 181px;
+   border-radius: 5px;
+   border: 10px dashed #D4D4D4;
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
+ }
+ .caixa-criar-quizz p{
+   color: #B9B9B9;
+  padding-bottom: 25px;
+  font-size: 20px;
+  text-align:center;
+  
+ }
+
+ .botao-criar-quizz{
+   border: 1px dashed;
+   border-radius: 50px;
+   color: #EC362D;
+   width:136px;
+   height: 40px;
+   background-color: #ffffff;
+   font-size: 21px;
+   
+ }
+
+ .todosQuiz{
     width:1052px;
     display: flex;
     flex-wrap: wrap;
