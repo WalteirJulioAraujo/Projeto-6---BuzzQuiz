@@ -1,3 +1,4 @@
+
  body{
   font-family: 'Roboto', sans-serif;
  }
@@ -11,6 +12,7 @@
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 77px;
  }
+
  .topo p{
   font-family: 'Roboto', sans-serif;
   font-size: 37px;
@@ -20,7 +22,6 @@
  .caixa-criar-quizz{
    width: 1052px;
    height: 181px;
-   background-color: ;
    border-radius: 5px;
    border: 1px dashed #D4D4D4;
    margin: 0 auto;
@@ -49,3 +50,47 @@
    font-size: 21px;
    
  }
+
+ .todosQuiz{
+    width:1052px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.quiz{
+    width:340px;
+    height: 181px;
+    position: relative;
+    margin-bottom: 19px;
+}
+
+.quiz img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.texto{
+    position: absolute;
+    font-size: 19px;
+    color: #fff;
+    z-index:4;
+    bottom: 0px;
+}
+
+
+
+@media(max-width:600px){
+    .todosQuiz{
+        display: block;
+        width: auto;
+    }
+
+    .quiz{
+        margin-bottom: 14px ;
+        margin-left: 17px;
+        margin-right: 17px;
+    }
+}
