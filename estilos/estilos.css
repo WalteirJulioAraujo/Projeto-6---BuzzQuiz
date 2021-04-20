@@ -13,10 +13,22 @@
   margin-bottom: 77px;
  }
 
- .titulo-div{
+ .titulo{
+    width: 1052px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+ }
+ .titulo span{
     font-size: 20px;
     color: #000;
     font-weight: 700;
+ }
+
+ .titulo ion-icon{
+    font-size: 25px;
+    color: #EC362D;
  }
 
  .topo p{
@@ -91,10 +103,7 @@
     left: 18px;
 
 }
-.icon-titulo{
-  font-size: 31px;
-  color: #EC362D;
-}
+
 
 
 
