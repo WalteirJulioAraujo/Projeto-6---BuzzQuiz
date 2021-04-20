@@ -85,9 +85,11 @@
 .quiz .texto{
     position: absolute;
     font-size: 19px;
-    color: #fff;
+    color:#ffffff;
     z-index:4;
-    bottom: 0px;
+    bottom: 7px;
+    left: 18px;
+
 }
 .icon-titulo{
   font-size: 31px;
