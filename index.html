@@ -13,15 +13,18 @@
 </head>
 
 <body>
+
     <div class="topo">
         <p>BuzzQuizz</p>
     </div>
-    <div class="caixa-criar-quizz escondido">
-        <p> Você não criou nenhum <br>quizz ainda :( </p>
-    
-        <button class="botao-criar-quizz">Criar Quizz </button>
-    </div>
+
     <div class="tela1 escondido">
+        <div class="caixa-criar-quizz escondido">
+            <p> Você não criou nenhum <br>quizz ainda :( </p>
+        
+            <button class="botao-criar-quizz">Criar Quizz </button>
+        </div>
+    
         <div class="titulo primeiro">
             <span>Seus quizzes</span><ion-icon name="add-circle" class="icon-titulo"></ion-icon>
         </div>
@@ -78,6 +81,86 @@
     </div>
 
     <div class="tela3">
+
+        <div class="comeco escondido">
+            <h1>Comece pelo começo</h1>
+            <div class="campos">
+                <input type="text" placeholder="Título do seu quizz">
+                <input type="text" placeholder="URL da imagem do seu quizz">
+                <input type="text" placeholder="Quantidade de perguntas do quizz">
+                <input type="text" placeholder="Quantidade de níveis do quizz">
+            </div>
+            <div class="botao">
+                Prosseguir pra criar perguntas
+            </div>
+        </div>
+
+        <div class="crie-perguntas escondido">
+            <h1>Crie suas perguntas</h1>
+            <div class=campos>
+
+                <div class="perguntas">
+                    <span>Pergunta 1</span>
+                    <input type="text" placeholder="Texto da pergunta">
+                    <input type="text" placeholder="Cor de fundo da pergunta">
+                </div>
+                
+                <div class="resposta-correta">
+                    <span>Resposta correta</span>
+                    <input type="text" placeholder="Resposta correta">
+                    <input type="text" placeholder="Url da imagem">
+                </div>
+
+                <div class="resposta-incorreta">
+                    <span>Resposta incorreta</span>
+                    <div class="alternativa-incorreta">
+                        <input type="text" placeholder="Resposta incorreta 1">
+                        <input type="text" placeholder="URL da imagem 1">
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="campos">
+                <div class="extra">
+                    <span>Pergunta 2</span>
+                <ion-icon name="create"></ion-icon>
+                </div>
+            </div>
+
+            <div class="botao">
+                Prosseguir pra criar niveis
+            </div>
+
+        </div>
+
+        <div class="niveis escondido">
+            <h1>Agora, decida os níveis</h1>
+            <div class=campos>
+
+                <div class="nivel">
+                    <div class="titulo-input">
+                        <span>Nível 1</span>
+                    </div>
+                    <input type="text" placeholder="Título do nível">
+                    <input type="text" placeholder="% de acerto mínimo">
+                    <input type="text" placeholder="URL da imagem do nível">
+                    <input type="text" placeholder="Descrição do nível">
+                </div>
+                
+            </div>
+
+            <div class="campos">
+                <div class="extra">
+                    <span>Nível 2</span>
+                <ion-icon name="create"></ion-icon>
+                </div>
+            </div>
+
+            <div class="botao">
+                Finaliza Quizz
+            </div>
+        </div>
 
     </div>
     
