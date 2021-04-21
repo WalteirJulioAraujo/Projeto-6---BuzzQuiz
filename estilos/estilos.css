@@ -153,7 +153,7 @@ body{
 
 
 /* TELA 3 */
-.comeco,.crie-perguntas,.niveis{
+.comeco,.crie-perguntas,.niveis,.quizz-concluido{
     width: 600px;
     margin: 0 auto;
     margin-top: 140px;
@@ -194,8 +194,9 @@ body{
 }
 
 .tela3 .botao {
-    width: 367px;
+    width: fit-content;
     height: 54px;
+    padding: 0px 90px;
     margin: 0 auto;
     margin-top: 85px;
     font-size: 21px;
@@ -208,8 +209,7 @@ body{
 }
 
 
-.crie-perguntas h1,.niveis h1{
-    font-size: 23px;
+.crie-perguntas h1,.niveis h1,.quizz-concluido h1{
     font-size: 23px;
     font-weight: bold;
     text-align: center;
