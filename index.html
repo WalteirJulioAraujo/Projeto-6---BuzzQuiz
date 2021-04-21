@@ -19,7 +19,7 @@
         <p>BuzzQuizz</p>
     </div>
 
-    <div class="tela1">
+    <div class="tela1 escondido">
         <div class="caixa-criar-quizz escondido">
             <p> Você não criou nenhum <br>quizz ainda :( </p>
         
@@ -153,17 +153,17 @@
         </div>
 
     </div>
-    <div class="tela3 escondido">
+    <div class="tela3">
 
-        <div class="comeco escondido">
+        <div class="comeco ">
             <h1>Comece pelo começo</h1>
             <div class="campos">
-                <input type="text" placeholder="Título do seu quizz">
-                <input type="text" placeholder="URL da imagem do seu quizz">
-                <input type="text" placeholder="Quantidade de perguntas do quizz">
-                <input type="text" placeholder="Quantidade de níveis do quizz">
+                <input type="text" placeholder="Título do seu quizz" id="input-titulo">
+                <input type="url" placeholder="URL da imagem do seu quizz" id="input-imgUrl">
+                <input type="text" placeholder="Quantidade de perguntas do quizz" id="input-qtdPergunta">
+                <input type="text" placeholder="Quantidade de níveis do quizz" id="input-qtdNiveis">
             </div>
-            <div class="botao">
+            <div class="botao" onclick="criarQuizz()">
                 Prosseguir pra criar perguntas
             </div>
         </div>
@@ -171,28 +171,29 @@
         <div class="crie-perguntas escondido">
             <h1>Crie suas perguntas</h1>
             <div class=campos>
-
-                <div class="perguntas">
-                    <span>Pergunta 1</span>
-                    <input type="text" placeholder="Texto da pergunta">
-                    <input type="text" placeholder="Cor de fundo da pergunta">
-                </div>
-                
-                <div class="resposta-correta">
-                    <span>Resposta correta</span>
-                    <input type="text" placeholder="Resposta correta">
-                    <input type="text" placeholder="Url da imagem">
-                </div>
-
-                <div class="resposta-incorreta">
-                    <span>Resposta incorreta</span>
-                    <div class="alternativa-incorreta">
-                        <input type="text" placeholder="Resposta incorreta 1">
-                        <input type="text" placeholder="URL da imagem 1">
+                <div class="pergunta-completa">
+                    <div class="perguntas">
+                        <span>Pergunta 1</span>
+                        <input type="text" placeholder="Texto da pergunta">
+                        <input type="text" placeholder="Cor de fundo da pergunta">
                     </div>
-                </div>
-                
+                    
+                    <div class="resposta-correta">
+                        <span>Resposta correta</span>
+                        <input type="text" placeholder="Resposta correta">
+                        <input type="text" placeholder="Url da imagem">
+                    </div>
+
+                    <div class="resposta-incorreta">
+                        <span>Resposta incorreta</span>
+                        <div class="alternativa-incorreta">
+                            <input type="text" placeholder="Resposta incorreta 1">
+                            <input type="text" placeholder="URL da imagem 1">
+                        </div>
+                    </div>
+                </div>    
             </div>
+            <!--  ESSES CAMPOS VAO SER INCLUIDOS AUTOMATICAMENTE PELO JS
 
             <div class="campos">
                 <div class="extra">
@@ -204,6 +205,7 @@
             <div class="botao">
                 Prosseguir pra criar niveis
             </div>
+            -->
 
         </div>
 
@@ -222,17 +224,18 @@
                 </div>
                 
             </div>
-
+            <!-- ESSES CAMPOS VAO SER INCLUIDOS AUTOMATICAMENTE PELO JS
             <div class="campos">
                 <div class="extra">
                     <span>Nível 2</span>
-                <ion-icon name="create"></ion-icon>
+                    <ion-icon name="create"></ion-icon>
                 </div>
             </div>
 
             <div class="botao">
                 Finalizar Quizz
             </div>
+            -->
         </div>
 
         <div class="quizz-concluido escondido">
