@@ -39,9 +39,10 @@ function criarNiveis(){
     const textoPergunta = document.getElementById("input-textoPergunta");
     const corFundo = document.getElementById("input-corFundo");
     //validando as informações da página
-    if(textoPergunta.length<20 || checarCorFundo(corFundo) || checarCamposVazios(qtdPerguntas) ){
 
-    }
+        //if(textoPergunta.length<20 || checarCorFundo(corFundo) || checarCamposVazios(qtdPerguntas) ){}
+
+    
 
 
     // A página já esta populada, basta fazermos aparecer
@@ -78,11 +79,12 @@ function popularCriePerguntas(qtdPerguntas){
 
     for(let i = 0; i < camposExtra ; i++) {
         telaCriePerguntas.innerHTML += `    
-            <div class="campos" onclick="abrirPergunta()">
+            <div class="campos" onclick="abrirPergunta(this)">
                 <div class="extra">
                     <span>Pergunta ${i+2}</span>
                     <ion-icon name="create"></ion-icon>
                 </div>
+
             </div>
             `
         ;  
@@ -108,7 +110,18 @@ function popularNiveis(qtdNiveis){
                     <span>Nível ${i+2}</span>
                     <ion-icon name="create"></ion-icon>
                 </div>
-            </div>
+
+                <div class="nivel escondido">
+                    <div class="titulo-input">
+                        <span>Nível ${i+2}</span>
+                    </div>
+                    <input type="text" placeholder="Título do nível">
+                    <input type="text" placeholder="% de acerto mínimo">
+                    <input type="text" placeholder="URL da imagem do nível">
+                    <input type="text" placeholder="Descrição do nível">
+                </div>
+
+            </div>         
             `
         ;
     }
@@ -120,6 +133,39 @@ function popularNiveis(qtdNiveis){
         `
     ;
 }
+
+
+function abrirPergunta(elemento) {
+    const i = elemento.querySelector("span").innerHTML
+
+    elemento.innerHTML = `
+        <div class="pergunta-completa escondido">
+        <div class="perguntas">
+            <span>Pergunta ${i[9]}</span>
+            <input type="text" placeholder="Texto da pergunta" id="input-textoPergunta${i[9]}">
+            <input type="text" placeholder="Cor de fundo da pergunta" id="input-corFundo${i[9]}">
+        </div>
+                    
+        <div class="resposta-correta">
+            <span>Resposta correta</span>
+            <input type="text" placeholder="Resposta correta" id="input-respostaCorreta${i[9]}">
+            <input type="text" placeholder="Url da imagem">
+        </div>
+
+        <div class="resposta-incorreta">
+            <span>Resposta incorreta</span>
+            <div class="alternativa-incorreta">
+                <input type="text" placeholder="Resposta incorreta 1" id="input-respostaIncorreta${i[9]}">
+                <input type="text" placeholder="URL da imagem 1">
+            </div>
+        </div>
+    `
+    ;
+}   
+
+
+
+//Funçoes de validação
 
 // Checa se a cor de fundo esta no formato valido
 
