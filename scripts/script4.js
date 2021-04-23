@@ -51,7 +51,7 @@ function criarNiveis(){
         vetorPergunta.color = divPergunta[1].value;
 
        if((divPergunta[0].value.length < 20) || !checkHex(divPergunta[1].value)){
-            alert("As informações solicitadas não foram inseridas corretamente");
+            alert("As informações solicitadas não foram inseridas corretamente1");
             return;
         }
         
@@ -59,7 +59,7 @@ function criarNiveis(){
 
         for(let i = 2 ; i < divPergunta.length ; i+=2){
             if(!(validURL(divPergunta[i+1].value)) || (divPergunta[2].value.length === 0)){
-                alert("As informações solicitadas não foram inseridas corretamente");
+                alert("As informações solicitadas não foram inseridas corretamente2");
                 return;
             }
             let vetorResposta = {text: "",image: "",isCorrectAnswer: ""};
