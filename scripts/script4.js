@@ -1,4 +1,4 @@
-
+let idDoQuizzCriado=0;
 // Variaveis Globais
 let qtdPergunta = 0;
 let qtdNivel = 0
@@ -164,10 +164,21 @@ function enviarQuizz(){
 
 function sucesso(resposta){
     console.log("deu certo")
+    console.log(resposta.data)
+    idQuizz=resposta.data.id
+    
+}
+
+function erro(resposta){
+    console.log("Deu erro")
     console.log(resposta.response)
 }
 
-function erro(respsota){
-    console.log("Deu erro")
-    console.log(resposta.response)
+function entrarNoQuizz(){
+    const tela3 = document.querySelector(".tela3");
+    const tela2 = document.querySelector(".tela2");
+    
+    tela3.classList.add("escondido");
+    tela2.classList.remove("escondido");
+    quizzSelecionado()
 }
