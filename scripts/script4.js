@@ -17,8 +17,17 @@ function criarQuizz(){
     qtdPergunta = document.getElementById("qtdPergunta-quizz").value;
     qtdNivel = document.getElementById("qtdNiveis-quizz").value;
 
+    const tituloQuizz = document.getElementById("titulo-quizz").value;
+    const urlQuizz = document.getElementById("url-quizz").value;
+
     dadosFinal.title = document.getElementById("titulo-quizz").value;
     dadosFinal.image = document.getElementById("url-quizz").value;
+
+    if( (tituloQuizz.length < 20) || (tituloQuizz.length > 65) || (qtdPergunta < 3) || (qtdNivel < 2) || !(validURL(urlQuizz)) ) {
+        alert("As informações solicitadas não foram inseridas corretamente")
+        return;
+    }
+
 
     const telaComeco = document.querySelector(".tela3 .comeco");
     const telaCriePerguntas = document.querySelector(".tela3 .crie-perguntas");
@@ -30,6 +39,7 @@ function criarQuizz(){
 }
 
 function criarNiveis(){
+
     let vetorPergunta = {title: "",color: "",answers:""};
     
     for(let i = 0; i < qtdPergunta;i++){
@@ -39,11 +49,18 @@ function criarNiveis(){
         vetorPergunta.title = divPergunta[0].value;
         vetorPergunta.color = divPergunta[1].value;
 
-       
+       if((divPergunta[0].value.length < 20) || !checkHex(divPergunta[1].value)){
+            alert("As informações solicitadas não foram inseridas corretamente");
+            return;
+        }
         
         let listaQuestoes = [];
 
         for(let i = 2 ; i < divPergunta.length ; i+=2){
+            if(!(validURL(divPergunta[i+1].value)) || (divPergunta[2].value.length === 0) || (divPergunta[4].value.length === 0)){
+                alert("As informações solicitadas não foram inseridas corretamente");
+                return;
+            }
             let vetorResposta = {text: "",image: "",isCorrectAnswer: ""};
             if(i===2){
                 vetorResposta.text = divPergunta[i].value;
@@ -72,9 +89,15 @@ function criarNiveis(){
 }
 
 function quizzPronto(){
+    let listaMinValue =[];
     for(let i = 0; i < qtdNivel ; i++){
         const divNivel = document.querySelectorAll(`.campoNivel${i+1} input`);
         let vetorNivel = {title: "",image:"",text:"",minValue:""};
+        
+        if((divNivel[0].value.length < 10) || (Number(divNivel[1].value) < 0) || (Number(divNivel[1].value) > 100) || (divNivel[3].value.length < 30) ){
+            alert("As informações solicitadas não foram inseridas corretamente");
+            return;
+        }
 
         vetorNivel.title = divNivel[0].value;
         vetorNivel.image = divNivel[2].value;
@@ -82,6 +105,11 @@ function quizzPronto(){
         vetorNivel.minValue = Number(divNivel[1].value);
 
         niveis.push(vetorNivel);
+        listaMinValue.push(Number(divNivel[1].value));
+    }
+    if(!listaMinValue.includes(0)){
+        alert("As informações solicitadas não foram inseridas corretamente");
+        return;
     }
     dadosFinal.levels = niveis;
 
@@ -164,10 +192,25 @@ function enviarQuizz(){
 
 function sucesso(resposta){
     console.log("deu certo")
-    console.log(resposta.response)
+    console.log(resposta)
 }
 
 function erro(respsota){
     console.log("Deu erro")
     console.log(resposta.response)
+}
+
+
+function checkHex(value){
+	return /^#([A-Fa-f0-9]{3}$)|([A-Fa-f0-9]{6}$)/.test(value)
+}
+
+function validURL(str) {
+    const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+      '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+      '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+      '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    return !!pattern.test(str);
 }
