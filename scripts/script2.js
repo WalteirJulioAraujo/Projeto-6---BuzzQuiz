@@ -36,7 +36,7 @@ function renderizarQuiz(dados) {
   numeroDeperguntas=dados.questions.length
   tela2.innerHTML = `
   <div class="banner ">
-  <img src="${dados.image}" alt="hogwarts">
+  <img src="${dados.image}">
   <p>${dados.title}</p>
 </div>
   `;
@@ -125,7 +125,7 @@ function responder(elemento) {
     </div>
   
     <div class="caixa-meme-e-texto">
-        <img src="${dadosDoQuizz.levels[salvarNivel].image}" alt="meme dumbledore">
+        <img src="${dadosDoQuizz.levels[salvarNivel].image}">
         <p>${dadosDoQuizz.levels[salvarNivel].text}</p>
     </div>
   </div>
