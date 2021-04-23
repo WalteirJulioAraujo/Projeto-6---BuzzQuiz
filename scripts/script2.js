@@ -127,7 +127,7 @@ function responder(elemento) {
         <p>${dadosDoQuizz.levels[salvarNivel].text}</p>
     </div>
   </div>
-  <div class="botoes-finais escondido">
+  <div class="botoes-finais ">
     <button class="reinicio" onclick="reiniciar()"> Reiniciar Quizz</button>
     <p class="volta" onclick="home()">Voltar pra home</p>
   </div>
