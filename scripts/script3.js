@@ -1,8 +1,9 @@
 // Variaveis globais
 let qtdPerguntas = 0;
-
+let dados ={};
+let respostas =[];
+let opcao ={};
 // Função roda quando clica no botao da tela 3.1
-
 function criarQuizz(){
     // Armazenando os dados inseridos na tela 3.1
 
@@ -30,20 +31,22 @@ function criarQuizz(){
     // Rodar a função que vai popular minha tela 3.2
     popularCriePerguntas(qtdPerguntas);
     popularNiveis(qtdNiveis);
+    
+    //Vamos modificar os dados a serem enviados, formatando pro jeito final
+    dados.title = tituloQuizz;
+    dados.image = imgQuizz;
 }
 
 // Função roda quando clica no botao da tela 3.2
 
 function criarNiveis(){
     //Localizando os inputs necessarios p/ as validaçoes
-    const textoPergunta = document.getElementById("input-textoPergunta");
-    const corFundo = document.getElementById("input-corFundo");
     //validando as informações da página
 
-        //if(textoPergunta.length<20 || checarCorFundo(corFundo) || checarCamposVazios(qtdPerguntas) ){}
-
-    
-
+    //if(textoPergunta.length<20 || checarCorFundo(corFundo) || checarCamposVazios(qtdPerguntas) ){
+    //    alert("As informações enviadas não são validas!");
+   //     return;
+    //
 
     // A página já esta populada, basta fazermos aparecer
     // Identificar as telas para ganharem ou perderem o escondido
@@ -53,11 +56,46 @@ function criarNiveis(){
 
     // Coloco o escondido nessa tela 3.2 e removo o escondido da tela 3.3
 
-    telaCriePerguntas.classList.add("escondido");
-    telaNiveis.classList.remove("escondido");
+    //telaCriePerguntas.classList.add("escondido");
+    //telaNiveis.classList.remove("escondido");
+
+    //Vamos modificar os dados a serem enviados, formatando pro jeito final
+    for(let i=1;i<(qtdPerguntas+1);i++) {
+        const textoPergunta = document.getElementById(`input-textoPergunta${i}`);
+        const corFundo = document.getElementById(`input-corFundo${i}`);
+        const respostaCorreta = document.getElementById(`input-respostaCorreta${i}`);
+        const divRespostasIncorretas = document.querySelector(`.alternativa-incorreta${i}`);
+        const respostasIncorretas = divRespostasIncorretas.querySelectorAll(".input-respostaIncorreta");
+        
+        const textoPerguntaValor = textoPergunta.value;
+        const corFundoValor = corFundo.value;
+        const respostaCorretaValor = respostaCorreta.value;
+        console.log(textoPerguntaValor);
+        const vetor = [{
+            text: respostaCorretaValor ,
+            image: "https://http.cat/411.jpg",
+            isCorrectAnswer: true
+        }];
+        for(let i =0; i <  (respostasIncorretas.length) ; i+=2){
+
+            const respostaIncorreta ={text: respostasIncorretas[i].value,
+            image: respostasIncorretas[i+1].value,
+            isCorrectAnswer: false}
+
+            vetor.push(respostaIncorreta)
+        }
+
+        const dadosFinal = {
+			title: textoPerguntaValor,
+			color: corFundoValor,
+			answers: vetor
+        }
+        respostas.push(dadosFinal);
+    }
+    
 }
 
-// Função roda quando clica no botao da tela 3.2
+// Função roda quando clica no botao da tela 3.3
 
 function quizzPronto(){
     // Identificar as telas para ganharem ou perderem o escondido
@@ -79,12 +117,39 @@ function popularCriePerguntas(qtdPerguntas){
 
     for(let i = 0; i < camposExtra ; i++) {
         telaCriePerguntas.innerHTML += `    
-            <div class="campos" onclick="abrirPergunta(this)">
+            <div class="campos">
                 <div class="extra">
                     <span>Pergunta ${i+2}</span>
-                    <ion-icon name="create"></ion-icon>
+                    <ion-icon name="create" onclick="abrirPergunta(this)"></ion-icon>
                 </div>
 
+            
+
+                <div class="pergunta-completa escondido">
+                    <div class="perguntas">
+                        <span>Pergunta ${i+2}</span>
+                        <input type="text" placeholder="Texto da pergunta" id="input-textoPergunta${i+2}">
+                        <input type="text" placeholder="Cor de fundo da pergunta" id="input-corFundo${i+2}">
+                    </div>
+                            
+                    <div class="resposta-correta${i+2}">
+                        <span>Resposta correta</span>
+                        <input type="text" placeholder="Resposta correta" id="input-respostaCorreta${i+2}">
+                        <input type="text" placeholder="Url da imagem">
+                    </div>
+
+                    <div class="resposta-incorreta">
+                        <span>Resposta incorreta</span>
+                        <div class="alternativa-incorreta${i+2}">
+                            <input type="text" placeholder="Resposta incorreta " class="input-respostaIncorreta">
+                            <input type="text" placeholder="URL da imagem " class="input-respostaIncorreta">
+                            <input type="text" placeholder="Resposta incorreta " class="input-respostaIncorreta">
+                            <input type="text" placeholder="URL da imagem " class="input-respostaIncorreta">
+                            <input type="text" placeholder="Resposta incorreta " class="input-respstaIncorreta">
+                            <input type="text" placeholder="URL da imagem" class="input-respostaIncoorreta">
+                        </div>
+                    </div>
+                </div>
             </div>
             `
         ;  
@@ -105,10 +170,10 @@ function popularNiveis(qtdNiveis){
 
     for(let i = 0; i < camposExtra ; i++) {
         telaNiveis.innerHTML += `    
-            <div class="campos" onclick="abrirNivel()">
+            <div class="campos">
                 <div class="extra">
                     <span>Nível ${i+2}</span>
-                    <ion-icon name="create"></ion-icon>
+                    <ion-icon name="create" onclick="abrirPergunta(this)"></ion-icon>
                 </div>
 
                 <div class="nivel escondido">
@@ -134,35 +199,16 @@ function popularNiveis(qtdNiveis){
     ;
 }
 
-
+// Tbm funciona para abrir o nivel
 function abrirPergunta(elemento) {
-    const i = elemento.querySelector("span").innerHTML
+    elemento = elemento.parentNode.parentNode
+    const fecharConteudo = elemento.querySelector(".extra");
+    const abrirConteudo = elemento.querySelector(".escondido");
 
-    elemento.innerHTML = `
-        <div class="pergunta-completa escondido">
-        <div class="perguntas">
-            <span>Pergunta ${i[9]}</span>
-            <input type="text" placeholder="Texto da pergunta" id="input-textoPergunta${i[9]}">
-            <input type="text" placeholder="Cor de fundo da pergunta" id="input-corFundo${i[9]}">
-        </div>
-                    
-        <div class="resposta-correta">
-            <span>Resposta correta</span>
-            <input type="text" placeholder="Resposta correta" id="input-respostaCorreta${i[9]}">
-            <input type="text" placeholder="Url da imagem">
-        </div>
+    fecharConteudo.classList.add("escondido");
+    abrirConteudo.classList.remove("escondido");
 
-        <div class="resposta-incorreta">
-            <span>Resposta incorreta</span>
-            <div class="alternativa-incorreta">
-                <input type="text" placeholder="Resposta incorreta 1" id="input-respostaIncorreta${i[9]}">
-                <input type="text" placeholder="URL da imagem 1">
-            </div>
-        </div>
-    `
-    ;
 }   
-
 
 
 //Funçoes de validação

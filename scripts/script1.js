@@ -13,11 +13,17 @@ function popularQuizz(resposta) {
 
     for(let i =0; i< dados.length ; i++){
         quizzes.innerHTML += `
-            <div class="quiz">
-                <img src="${dados[i].image}">
+            <div class="quiz" onclick="selecionarQuizz(this)">
+                <img src="${dados[i].image}" class="${dados[i].id}">
                 <div class="texto">${dados[i].title}</div>
             </div>
          `
         ;
-    }
+    }   
+}
+
+function selecionarQuizz(elemento) {
+    const imgQuizz = elemento.querySelector("img");
+    const idQuizz = imgQuizz.getAttribute("class");
+    console.log(idQuizz);
 }
