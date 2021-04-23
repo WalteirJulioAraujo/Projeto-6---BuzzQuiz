@@ -147,11 +147,8 @@ function verdeOuVermelho(resposta) {
 
 }
 function reiniciar(){
-  
-  window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-  }
-  window.location.reload()
+  quizzSelecionado()
+  window.scrollTo(0,0);
 }
 function home(){
   requererQuizz();
