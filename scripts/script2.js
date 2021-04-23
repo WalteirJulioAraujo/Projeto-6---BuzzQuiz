@@ -1,3 +1,4 @@
+
 let numeroDeperguntas=0;
 let comparador=0;
 let acertos=0;
@@ -18,9 +19,10 @@ function sorteador() {
 //  console.log(resposta.data)
 //}
 
-
-const promise = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes/1")
-promise.then(checarResposta);
+function quizzSelecionado(){
+  const promise = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes/${idQuizz}`)
+  promise.then(checarResposta);
+}
 
 function checarResposta(resposta) {
   
@@ -152,8 +154,10 @@ function reiniciar(){
   window.location.reload()
 }
 function home(){
+  requererQuizz();
   const tela2 = document.querySelector(".tela2");
   const tela1 = document.querySelector(".tela1");
   tela2.classList.add('escondido');
   tela1.classList.remove('escondido')
+  window.scrollTo(0,0);
 }
