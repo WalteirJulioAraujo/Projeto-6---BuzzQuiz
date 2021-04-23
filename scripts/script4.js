@@ -29,16 +29,32 @@ function criarQuizz(){
 }
 
 function criarNiveis(){
-    let vetorPergunta = {};
-    for(let i = 0; i<qtdPergunta;i++){
-        respostacorreta e url 
-        resportaincorreta e url
-        
+    let vetorPergunta = {title: "",color: "",answers:""};
+    let answers = []
+    for(let i = 0; i < qtdPergunta;i++){
+        const divPergunta = document.querySelectorAll(`.campo${i+1} input`);
+        console.log(divPergunta);
+        vetorPergunta.title = divPergunta[0].value;
+        vetorPergunta.color = divPergunta[1].value;
+
+        for(let i = 2; i < divPergunta.length ;i+=2){
+            let vetorResposta = {text: "",image: "",isCorrectAnswers: ""};
+            if(i===2){
+                vetorResposta.text = divPergunta[i].value;
+                vetorResposta.image = divPergunta[i+1].value; 
+                vetorResposta.isCorrectAnswers = true;
+            }else{
+                vetorResposta.text = divPergunta[i].value;
+                vetorResposta.image = divPergunta[i+1].value; 
+                vetorResposta.isCorrectAnswers = false;
+            }
+            answers.push(vetorResposta)
+        }
+        vetorPergunta.answers = answers;
+        questoes.push(vetorPergunta);
     }
-
-
-
-
+    dadosFinal.questions = questoes;
+    console.log(dadosFinal);
     const telaCriePerguntas = document.querySelector(".tela3 .crie-perguntas");
     const telaNiveis = document.querySelector(".tela3 .niveis");
 
@@ -58,8 +74,8 @@ function popularCriePerguntas(qtdPergunta){
     const divCriePerguntas = document.querySelector(".tela3 .crie-perguntas");
     for(let i = 0; i < qtdPergunta ; i++) {
         divCriePerguntas.innerHTML += `
-        <div class="campo-branco">
-            <div class="pergunta pergunta${i+1}">
+        <div class="campo-branco campo${i+1}">
+            <div class="pergunta pergunta">
                 <div class="subtitulo">Pergunta ${i+1}</div>
                 <input type="text" placeholder="Texto da pergunta">
                 <input type="text" placeholder="Cor de fundo da pergunta">
