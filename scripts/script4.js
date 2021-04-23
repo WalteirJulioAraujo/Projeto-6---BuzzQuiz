@@ -228,3 +228,11 @@ function entrarNoQuizz(){
     listaAleatorizadora.sort(sorteador);
     quizzSelecionado()
 }
+
+function abreCriarQuizz(){
+    const fecharTela1 = document.querySelector(".tela1");
+    const abrirTela3 = document.querySelector(".tela3")
+
+    fecharTela1.classList.add("escondido");
+    abrirTela3.classList.remove("escondido");
+}
