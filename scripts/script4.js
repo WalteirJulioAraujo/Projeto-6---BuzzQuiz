@@ -4,10 +4,10 @@ let qtdPergunta = 0;
 let qtdNivel = 0
 // Referente aos dados finais
 let dadosFinal = {
-	title: "",
-	image: "",
-	questions: "",
-    levels: ""
+	title: 0,
+	image: 0,
+	questions: 0,
+    levels: 0
 }
 let questoes = [];
 let niveis = [];
@@ -31,27 +31,34 @@ function criarQuizz(){
 
 function criarNiveis(){
     let vetorPergunta = {title: "",color: "",answers:""};
-    let answers = []
+    
     for(let i = 0; i < qtdPergunta;i++){
-        const divPergunta = document.querySelectorAll(`.campoPergunta${i+1} input`);
+        let vetorPergunta = {title: "",color: "",answers:""};
+        let divPergunta = document.querySelectorAll(`.campoPergunta${i+1} input`);
         console.log(divPergunta);
         vetorPergunta.title = divPergunta[0].value;
         vetorPergunta.color = divPergunta[1].value;
 
-        for(let i = 2; i < divPergunta.length ;i+=2){
-            let vetorResposta = {text: "",image: "",isCorrectAnswers: ""};
+       
+        
+        let listaQuestoes = [];
+
+        for(let i = 2 ; i < divPergunta.length ; i+=2){
+            let vetorResposta = {text: "",image: "",isCorrectAnswer: ""};
             if(i===2){
                 vetorResposta.text = divPergunta[i].value;
                 vetorResposta.image = divPergunta[i+1].value; 
-                vetorResposta.isCorrectAnswers = true;
-            }else{
+                vetorResposta.isCorrectAnswer = true;
+                listaQuestoes.push(vetorResposta);
+            } else {
                 vetorResposta.text = divPergunta[i].value;
                 vetorResposta.image = divPergunta[i+1].value; 
-                vetorResposta.isCorrectAnswers = false;
+                vetorResposta.isCorrectAnswer = false;
+                listaQuestoes.push(vetorResposta);
             }
-            answers.push(vetorResposta)
         }
-        vetorPergunta.answers = answers;
+
+        vetorPergunta.answers = listaQuestoes;
         questoes.push(vetorPergunta);
     }
     dadosFinal.questions = questoes;
@@ -72,7 +79,7 @@ function quizzPronto(){
         vetorNivel.title = divNivel[0].value;
         vetorNivel.image = divNivel[2].value;
         vetorNivel.text = divNivel[3].value;
-        vetorNivel.minValue = divNivel[1].value;
+        vetorNivel.minValue = Number(divNivel[1].value);
 
         niveis.push(vetorNivel);
     }
@@ -89,6 +96,7 @@ function quizzPronto(){
     telaNiveis.classList.add("escondido");
     telaQuizzConcluido.classList.remove("escondido");
     console.log(dadosFinal);
+    enviarQuizz();
 }
 
 function popularCriePerguntas(qtdPergunta){
@@ -146,4 +154,20 @@ function popularCrieNiveis(qtdNivel){
             Finalizar Quizz
         </div>
     `;
+}
+
+function enviarQuizz(){
+    const requerimento = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes",dadosFinal);
+    requerimento.then(sucesso);
+    requerimento.catch(erro);
+}
+
+function sucesso(resposta){
+    console.log("deu certo")
+    console.log(resposta.response)
+}
+
+function erro(respsota){
+    console.log("Deu erro")
+    console.log(resposta.response)
 }

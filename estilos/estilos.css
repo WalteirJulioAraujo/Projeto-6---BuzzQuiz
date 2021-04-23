@@ -395,3 +395,15 @@ body{
     bottom: 7px;
     left: 18px;
 }
+
+.tela3 .quizz-concluido .botao{
+    margin-top: 50px;
+}
+
+.voltar-home{
+    color: #818181;
+    font-size: 21px;
+    text-align: center;
+    margin-top: 15px;
+    
+}
