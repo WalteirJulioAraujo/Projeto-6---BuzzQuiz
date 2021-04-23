@@ -1,4 +1,5 @@
-
+let idDoQuizzCriado=0;
+let listaDosMeusQuizzes=[];
 // Variaveis Globais
 let qtdPergunta = 0;
 let qtdNivel = 0
@@ -192,14 +193,17 @@ function enviarQuizz(){
 
 function sucesso(resposta){
     console.log("deu certo")
-    console.log(resposta)
+    console.log(resposta.data)
+    idQuizz=resposta.data.id
+    listaDosMeusQuizzes.push(resposta.data.id)
+    
+
 }
 
-function erro(respsota){
+function erro(resposta){
     console.log("Deu erro")
     console.log(resposta.response)
 }
-
 
 function checkHex(value){
 	return /^#([A-Fa-f0-9]{3}$)|([A-Fa-f0-9]{6}$)/.test(value)
@@ -213,4 +217,14 @@ function validURL(str) {
       '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
       '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
     return !!pattern.test(str);
+}
+
+function entrarNoQuizz(){
+    const tela3 = document.querySelector(".tela3");
+    const tela2 = document.querySelector(".tela2");
+    
+    tela3.classList.add("escondido");
+    tela2.classList.remove("escondido");
+    listaAleatorizadora.sort(sorteador);
+    quizzSelecionado()
 }

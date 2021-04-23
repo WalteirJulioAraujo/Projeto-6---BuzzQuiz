@@ -13,15 +13,27 @@ function requererQuizz(){
 function popularQuizz(resposta) {
     const dados = resposta.data;
     let quizzes = document.querySelector('.todosQuiz');
+    let meusQuizzes = document.querySelector('.seusQuiz');
     quizzes.innerHTML = "";
+    meusQuizzes.innerHTML = "";
 
     for(let i =0; i< dados.length ; i++){
-        quizzes.innerHTML += `
+
+        if(listaDosMeusQuizzes.includes(dados[i].id)){
+            meusQuizzes.innerHTML+=`
+            <div class="quiz" onclick="selecionarQuizz(this)">
+                <img src="${dados[i].image}" class="${dados[i].id}">
+                <div class="texto">${dados[i].title}</div>
+            </div>
+            `
+        }else {
+            quizzes.innerHTML += `
             <div class="quiz" onclick="selecionarQuizz(this)">
                 <img src="${dados[i].image}" class="${dados[i].id}">
                 <div class="texto">${dados[i].title}</div>
             </div>
          `
+        }
         ;
     }   
 }
