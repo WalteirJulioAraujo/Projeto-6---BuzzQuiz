@@ -1,4 +1,5 @@
 let idDoQuizzCriado=0;
+let listaDosMeusQuizzes=[];
 // Variaveis Globais
 let qtdPergunta = 0;
 let qtdNivel = 0
@@ -166,6 +167,7 @@ function sucesso(resposta){
     console.log("deu certo")
     console.log(resposta.data)
     idQuizz=resposta.data.id
+    listaDosMeusQuizzes.push(resposta.data.id)
     
 }
 
@@ -180,5 +182,6 @@ function entrarNoQuizz(){
     
     tela3.classList.add("escondido");
     tela2.classList.remove("escondido");
+    listaAleatorizadora.sort(sorteador);
     quizzSelecionado()
 }

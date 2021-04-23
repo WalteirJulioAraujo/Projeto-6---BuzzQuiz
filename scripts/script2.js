@@ -4,9 +4,9 @@ let comparador=0;
 let acertos=0;
 let dadosDoQuizz=[];
 let salvarNivel=0;
-const lista = [0, 1, 2, 3]
+const listaAleatorizadora = [0, 1, 2, 3]
 
-lista.sort(sorteador);
+listaAleatorizadora.sort(sorteador);
 function sorteador() {
   return Math.random() - 0.5;
 }
@@ -49,24 +49,25 @@ function renderizarQuiz(dados) {
         <p >${dados.questions[i].title}</p>
     </div>
     <div class="caixa-respostas ${i}" >
-    <div class="resposta ${dados.questions[i].answers[lista[0]].isCorrectAnswer}" onclick="responder(this)">
-        <img src="${dados.questions[i].answers[lista[0]].image}" alt="gato">
-        <p>${dados.questions[i].answers[lista[0]].text}</p>
+    <div class="resposta ${dados.questions[i].answers[listaAleatorizadora[0]].isCorrectAnswer}" onclick="responder(this)">
+        <img src="${dados.questions[i].answers[listaAleatorizadora[0]].image}" alt="gato">
+        <p>${dados.questions[i].answers[listaAleatorizadora[0]].text}</p>
     </div>
-    <div class="resposta ${dados.questions[i].answers[lista[1]].isCorrectAnswer}" onclick="responder(this)">
-        <img src="${dados.questions[i].answers[lista[1]].image}" alt="gato">
-        <p >${dados.questions[i].answers[lista[1]].text}</p>
+    <div class="resposta ${dados.questions[i].answers[listaAleatorizadora[1]].isCorrectAnswer}" onclick="responder(this)">
+        <img src="${dados.questions[i].answers[listaAleatorizadora[1]].image}" alt="gato">
+        <p >${dados.questions[i].answers[listaAleatorizadora[1]].text}</p>
     </div>
-    <div class="resposta ${dados.questions[i].answers[lista[2]].isCorrectAnswer}" onclick="responder(this)">
-        <img src="${dados.questions[i].answers[lista[2]].image}" alt="gato">
-        <p>${dados.questions[i].answers[lista[2]].text}</p>
+    <div class="resposta ${dados.questions[i].answers[listaAleatorizadora[2]].isCorrectAnswer}" onclick="responder(this)">
+        <img src="${dados.questions[i].answers[listaAleatorizadora[2]].image}" alt="gato">
+        <p>${dados.questions[i].answers[listaAleatorizadora[2]].text}</p>
     </div>
-    <div class="resposta ${dados.questions[i].answers[lista[3]].isCorrectAnswer}" onclick="responder(this)">
-        <img src="${dados.questions[i].answers[lista[3]].image}" alt="gato">
-        <p>${dados.questions[i].answers[lista[3]].text}</p>
+    <div class="resposta ${dados.questions[i].answers[listaAleatorizadora[3]].isCorrectAnswer}" onclick="responder(this)">
+        <img src="${dados.questions[i].answers[listaAleatorizadora[3]].image}" alt="gato">
+        <p>${dados.questions[i].answers[listaAleatorizadora[3]].text}</p>
     </div>
 </div>
-    </div>`
+    </div>`;
+    listaAleatorizadora.sort(sorteador);
   }
   tela2.innerHTML += `
   <div class="telafinal escondido">
