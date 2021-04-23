@@ -19,7 +19,7 @@
         <p>BuzzQuizz</p>
     </div>
 
-    <div class="tela1">
+    <div class="tela1 escondido">
         <div class="caixa-criar-quizz escondido">
             <p> Você não criou nenhum <br>quizz ainda :( </p>
         
@@ -136,32 +136,31 @@
             </div>
         </div>
         <div class="telafinal">
-        <div class="final">
-            <div class="acertos">
-                <p>88% de acerto: Você é praticamente um aluno de Hogwarts!</p>
-            </div>
+            <div class="final">
+                <div class="acertos">
+                    <p>88% de acerto: Você é praticamente um aluno de Hogwarts!</p>
+                </div>
 
-            <div class="caixa-meme-e-texto">
-                <img src="Imagens/pro-final.jpg" alt="meme dumbledore">
-                <p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão
-                    abaixo para usar o vira-tempo e reiniciar este teste.</p>
+                <div class="caixa-meme-e-texto">
+                    <img src="Imagens/pro-final.jpg" alt="meme dumbledore">
+                    <p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão
+                        abaixo para usar o vira-tempo e reiniciar este teste.</p>
+                </div>
+            </div>
+            <div class="botoes-finais">
+                <button class="reinicio"> Reiniciar Quizz</button>
+                <p class="volta">Voltar pra home</p>
             </div>
         </div>
-        <div class="botoes-finais">
-            <button class="reinicio"> Reiniciar Quizz</button>
-            <p class="volta">Voltar pra home</p>
-        </div>
-</div>
     </div>
-    <div class="tela3 escondido">
-
-        <div class="comeco ">
-            <h1>Comece pelo começo</h1>
-            <div class="campos">
-                <input type="text" placeholder="Título do seu quizz" id="input-titulo">
-                <input type="url" placeholder="URL da imagem do seu quizz" id="input-imgUrl">
-                <input type="text" placeholder="Quantidade de perguntas do quizz" id="input-qtdPergunta">
-                <input type="text" placeholder="Quantidade de níveis do quizz" id="input-qtdNiveis">
+    <div class="tela3">
+        <div class="comeco">
+            <div class="titulo3">Comece pelo começo</div>
+            <div class="campo-branco">
+                <input type="text" placeholder="Título do seu quizz" id="titulo-quizz">
+                <input type="text" placeholder="URL da imagem do seu quizz" id="url-quizz">
+                <input type="text" placeholder="Quantidade de perguntas do quizz" id="qtdPergunta-quizz">
+                <input type="text" placeholder="Quantidade de níveis do quizz" id="qtdNiveis-quizz">
             </div>
             <div class="botao" onclick="criarQuizz()">
                 Prosseguir pra criar perguntas
@@ -169,94 +168,62 @@
         </div>
 
         <div class="crie-perguntas escondido">
-            <h1>Crie suas perguntas</h1>
-            <div class=campos>
-                <div class="pergunta-completa">
-                    <div class="perguntas">
-                        <span>Pergunta 1</span>
-                        <input type="text" placeholder="Texto da pergunta" id="input-textoPergunta1">
-                        <input type="text" placeholder="Cor de fundo da pergunta" id="input-corFundo1">
-                    </div>
-                    
-                    <div class="resposta-correta">
-                        <span>Resposta correta</span>
-                        <input type="text" placeholder="Resposta correta" id="input-respostaCorreta1">
-                        <input type="text" placeholder="Url da imagem">
-                    </div>
-
-                    <div class="resposta-incorreta">
-                        <span>Resposta incorreta</span>
-                        <div class="alternativa-incorreta1">
-                            <input type="text" placeholder="Resposta incorreta 1" class="input-respostaIncorreta">
-                            <input type="text" placeholder="URL da imagem 1" class="input-respostaIncorreta">
-                            <input type="text" placeholder="Resposta incorreta 1" class="input-respostaIncorreta">
-                            <input type="text" placeholder="URL da imagem 1" class="input-respostaIncorreta">
-                            <input type="text" placeholder="Resposta incorreta 1" class="input-respostaIncorreta">
-                            <input type="text" placeholder="URL da imagem 1" class="input-respostaIncorreta">
-                        </div>
-                    </div>
-                </div>    
-            </div>
-            <!--  ESSES CAMPOS VAO SER INCLUIDOS AUTOMATICAMENTE PELO JS
-
-            <div class="campos">
-                <div class="extra">
-                    <span>Pergunta 2</span>
-                <ion-icon name="create"></ion-icon>
+            <div class="titulo3">Crie suas perguntas</div>
+            <div class="campo-branco">
+                <div class="pergunta pergunta${i+1}">
+                    <div class="subtitulo">Pergunta ${i+1}</div>
+                    <input type="text" placeholder="Texto da pergunta">
+                    <input type="text" placeholder="Cor de fundo da pergunta">
                 </div>
+                <div class="resposta-correta">
+                    <div class="subtitulo">Resposta Correta</div>
+                    <input type="text" placeholder="Resposta correta">
+                    <input type="text" placeholder="URL da imagem">
+                </div>
+                <div class="resposta-incorreta">
+                    <div class="subtitulo">Resposta Incorreta</div>
+                    <input type="text" placeholder="Resposta incorreta 1">
+                    <input type="text" placeholder="URL da imagem 1">
+                    <input type="text" placeholder="Resposta incorreta 2">
+                    <input type="text" placeholder="URL da imagem 2">
+                    <input type="text" placeholder="Resposta incorreta 3">
+                    <input type="text" placeholder="URL da imagem 3">
+                </div>
+            
             </div>
-
-            <div class="botao">
-                Prosseguir pra criar niveis
-            </div>
-            -->
-
         </div>
 
         <div class="niveis escondido">
-            <h1>Agora, decida os níveis</h1>
-            <div class=campos>
-
-                <div class="nivel">
-                    <div class="titulo-input">
-                        <span>Nível 1</span>
-                    </div>
-                    <input type="text" placeholder="Título do nível">
-                    <input type="text" placeholder="% de acerto mínimo">
-                    <input type="text" placeholder="URL da imagem do nível">
-                    <input type="text" placeholder="Descrição do nível">
-                </div>
-                
-            </div>
-            <!-- ESSES CAMPOS VAO SER INCLUIDOS AUTOMATICAMENTE PELO JS
-            <div class="campos">
-                <div class="extra">
-                    <span>Nível 2</span>
-                    <ion-icon name="create"></ion-icon>
-                </div>
+            <div class="titulo3">Agora, decida os níveis</div>
+            <div class="campo-branco">
+                <div class="subtitulo">Nível 1</div>
+                <input type="text" placeholder="Título do nível">
+                <input type="text" placeholder="% de acerto mínima">
+                <input type="text" placeholder="URL da imagem do nível">
+                <input type="text" placeholder="Descrição do nível">
             </div>
 
-            <div class="botao">
+            <div class="botao" onclick="quizzPronto()">
                 Finalizar Quizz
             </div>
-            -->
+
         </div>
 
         <div class="quizz-concluido escondido">
-            <h1>Seu quizz está pronto</h1>
+            <div class="titulo3">Seu quizz está pronto</div>
             <img src="" alt="">
+
             <div class="botao">
                 Acessar quizz
             </div>
         </div>
 
     </div>
-
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="scripts/script1.js"></script>
     <script src="scripts/script2.js"></script>
-    <script src="scripts/script3.js"></script>
+    <script src="scripts/script4.js"></script>
 </body>
 
 </html>

@@ -301,16 +301,22 @@ body{
 
 
 /* TELA 3 */
-.comeco,.crie-perguntas,.niveis,.quizz-concluido{
-    width: 600px;
-    margin: 0 auto;
+.tela3 .titulo3{
+    width: 100%;
+    text-align: center;
     margin-top: 140px;
+    font-weight: bold;
+    font-size: 23px;
+    color: rgba(0, 0, 0, 1);
+
 }
 
-.campos{
+.campo-branco{
     width: 600px;
-    padding: 20px;
-    margin-top: 24px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+    margin-top: 48px;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -319,21 +325,14 @@ body{
     box-shadow:0 0 10px rgba(0, 0, 0, 0.05);
 }
 
-.comeco h1{
-    font-size: 23px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 48px;
-}
-
 .tela3 input{
-    width: 90%;
+    width: 564px;
     height: 46px;
+    border: 1px solid rgba(209, 209, 209, 1);
     border-radius: 5px;
-    border: 1px solid #d1d1d1;
+    background-color: #fff;
     font-size: 19px;
-    font-style: italic;
-    margin-bottom: 9px;
+    margin-bottom: 12px;
 }
 
 .tela3 input::placeholder{
@@ -356,56 +355,13 @@ body{
     justify-content: center;
 }
 
-
-.crie-perguntas h1,.niveis h1,.quizz-concluido h1{
-    font-size: 23px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 36px;
+.pergunta, .resposta-correta, .resposta-incorreta{
+    width: 564px;
+    margin-bottom: 28px;
 }
 
-.tela3 span{
+.tela3 .subtitulo{
+    font-weight: bold;
     font-size: 20px;
-    font-weight: bold;
     margin-bottom: 12px;
-}
-
-.perguntas,.resposta-correta1,.resposta-correta2,.resposta-correta3,.resposta-correta4,.resposta-incorreta1,.resposta-incorreta2,.resposta-incorreta3,.resposta-incorreta4,.alternativa-incorreta,.nivel{
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.extra{
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.titulo-input{
-    width: 90%;
-    text-align: start;
-    margin-bottom: 12px;
-}
-
-.pergunta-completa{
-    width: 600px;
-    padding: 20px;
-    margin-top: 24px;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow:0 0 10px rgba(0, 0, 0, 0.05);
-}
-
-.titulo-caixaPergunta{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
