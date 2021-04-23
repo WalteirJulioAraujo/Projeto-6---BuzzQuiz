@@ -79,7 +79,12 @@ function quizzPronto(){
     dadosFinal.levels = niveis;
 
     const telaNiveis = document.querySelector(".tela3 .niveis");
-    const telaQuizzConcluido = document.querySelector(".tela3 .quizz-concluido")
+    const telaQuizzConcluido = document.querySelector(".tela3 .quizz-concluido");
+    const imgQuizzConcluido = document.querySelector(".tela3 .quizz-concluido img");
+    const textoQuizzConcluido = document.querySelector(".quizz-concluido .texto-quizzConcluido")
+
+    imgQuizzConcluido.setAttribute("src",dadosFinal.image);
+    textoQuizzConcluido.innerHTML = dadosFinal.title;
 
     telaNiveis.classList.add("escondido");
     telaQuizzConcluido.classList.remove("escondido");
