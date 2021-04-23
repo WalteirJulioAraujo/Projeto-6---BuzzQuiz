@@ -58,7 +58,7 @@ function criarNiveis(){
         let listaQuestoes = [];
 
         for(let i = 2 ; i < divPergunta.length ; i+=2){
-            if(!(validURL(divPergunta[i+1].value)) || (divPergunta[2].value.length === 0) || (divPergunta[4].value.length === 0)){
+            if(!(validURL(divPergunta[i+1].value)) || (divPergunta[2].value === "")){
                 alert("As informações solicitadas não foram inseridas corretamente");
                 return;
             }
@@ -69,10 +69,12 @@ function criarNiveis(){
                 vetorResposta.isCorrectAnswer = true;
                 listaQuestoes.push(vetorResposta);
             } else {
-                vetorResposta.text = divPergunta[i].value;
-                vetorResposta.image = divPergunta[i+1].value; 
-                vetorResposta.isCorrectAnswer = false;
-                listaQuestoes.push(vetorResposta);
+                if(!divPergunta[i]===""){
+                    vetorResposta.text = divPergunta[i].value;
+                    vetorResposta.image = divPergunta[i+1].value; 
+                    vetorResposta.isCorrectAnswer = false;
+                    listaQuestoes.push(vetorResposta);
+                }
             }
         }
 
