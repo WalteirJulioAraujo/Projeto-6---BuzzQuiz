@@ -26,13 +26,14 @@ function criarQuizz(){
     telaCriePerguntas.classList.remove("escondido");
 
     popularCriePerguntas(qtdPergunta);
+    popularCrieNiveis(qtdNivel);
 }
 
 function criarNiveis(){
     let vetorPergunta = {title: "",color: "",answers:""};
     let answers = []
     for(let i = 0; i < qtdPergunta;i++){
-        const divPergunta = document.querySelectorAll(`.campo${i+1} input`);
+        const divPergunta = document.querySelectorAll(`.campoPergunta${i+1} input`);
         console.log(divPergunta);
         vetorPergunta.title = divPergunta[0].value;
         vetorPergunta.color = divPergunta[1].value;
@@ -60,22 +61,37 @@ function criarNiveis(){
 
     telaCriePerguntas.classList.add("escondido");
     telaNiveis.classList.remove("escondido");
+
 }
 
 function quizzPronto(){
+    for(let i = 0; i < qtdNivel ; i++){
+        const divNivel = document.querySelectorAll(`.campoNivel${i+1} input`);
+        let vetorNivel = {title: "",image:"",text:"",minValue:""};
+
+        vetorNivel.title = divNivel[0].value;
+        vetorNivel.image = divNivel[2].value;
+        vetorNivel.text = divNivel[3].value;
+        vetorNivel.minValue = divNivel[1].value;
+
+        niveis.push(vetorNivel);
+    }
+    dadosFinal.levels = niveis;
+
     const telaNiveis = document.querySelector(".tela3 .niveis");
     const telaQuizzConcluido = document.querySelector(".tela3 .quizz-concluido")
 
     telaNiveis.classList.add("escondido");
     telaQuizzConcluido.classList.remove("escondido");
+    console.log(dadosFinal);
 }
 
 function popularCriePerguntas(qtdPergunta){
     const divCriePerguntas = document.querySelector(".tela3 .crie-perguntas");
     for(let i = 0; i < qtdPergunta ; i++) {
         divCriePerguntas.innerHTML += `
-        <div class="campo-branco campo${i+1}">
-            <div class="pergunta pergunta">
+        <div class="campo-branco campoPergunta${i+1}">
+            <div class="pergunta">
                 <div class="subtitulo">Pergunta ${i+1}</div>
                 <input type="text" placeholder="Texto da pergunta">
                 <input type="text" placeholder="Cor de fundo da pergunta">
@@ -101,6 +117,28 @@ function popularCriePerguntas(qtdPergunta){
     divCriePerguntas.innerHTML += `
         <div class="botao" onclick="criarNiveis()">
             Prosseguir pra criar niveis
+        </div>
+    `;
+}
+
+
+function popularCrieNiveis(qtdNivel){
+    const divCrieNiveis = document.querySelector(".tela3 .niveis");
+    for(let i = 0; i < qtdNivel ; i++) {
+        divCrieNiveis.innerHTML += `
+            <div class="campo-branco campoNivel${i+1}">
+                <div class="subtitulo">Nível ${i+1}</div>
+                <input type="text" placeholder="Título do nível">
+                <input type="text" placeholder="% de acerto mínima">
+                <input type="text" placeholder="URL da imagem do nível">
+                <input type="text" placeholder="Descrição do nível">
+            </div>
+        `;
+    }
+    
+    divCrieNiveis.innerHTML += `
+        <div class="botao" onclick="quizzPronto()">
+            Finalizar Quizz
         </div>
     `;
 }
