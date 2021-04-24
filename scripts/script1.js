@@ -18,7 +18,19 @@ function popularQuizz(resposta) {
     meusQuizzes.innerHTML = "";
 
     for(let i =0; i< dados.length ; i++){
-
+        if(listaDosMeusQuizzes.length == 0){
+            const caixaCriar = document.querySelector(".caixa-criar-quizz");
+            const tituloPrimeiro = document.querySelector(".primeiro");
+            tituloPrimeiro.classList.add("escondido");
+            caixaCriar.classList.remove('escondido');
+            meusQuizzes.classList.add('escondido');
+        }else{
+            const caixaCriar = document.querySelector(".caixa-criar-quizz");
+            const tituloPrimeiro = document.querySelector(".primeiro");
+            tituloPrimeiro.classList.remove("escondido");
+            caixaCriar.classList.add('escondido');
+            meusQuizzes.classList.remove('escondido');
+        }
         if(listaDosMeusQuizzes.includes(dados[i].id)){
             meusQuizzes.innerHTML+=`
             <div class="quiz" onclick="selecionarQuizz(this)">
@@ -41,8 +53,7 @@ function popularQuizz(resposta) {
 function selecionarQuizz(elemento) {
     const imgQuizz = elemento.querySelector("img");
     idQuizz = imgQuizz.getAttribute("class");
-    console.log(idQuizz);
-
+    
     const tela1 = document.querySelector(".tela1");
     const tela2 = document.querySelector(".tela2");
     
@@ -51,5 +62,5 @@ function selecionarQuizz(elemento) {
 
     quizzSelecionado()
     window.scrollTo(0,0);
-
 }
+

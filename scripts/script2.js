@@ -12,13 +12,6 @@ function sorteador() {
 }
 
 
-//const promessa = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes")
-//promessa.then(verResposta);
-
-//function verResposta(resposta) {
-//  console.log(resposta.data)
-//}
-
 function quizzSelecionado(){
   const promise = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/buzzquizz/quizzes/${idQuizz}`)
   promise.then(checarResposta);
@@ -75,8 +68,7 @@ function renderizarQuiz(dados) {
 </div>
 `
 }
-// atribui um selecionado
-//atribuir opaco a todos que não tiverem a classe selecionado
+
 
 function responder(elemento) {
   const pai = elemento.parentNode;

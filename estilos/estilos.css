@@ -5,7 +5,6 @@ body{
 }
 
 .topo{
-  width: 100%;
   height: 69px;
   background-color: #EC362D;
   display: flex;
@@ -15,6 +14,7 @@ body{
   position: fixed;
   top: 0px;
   left: 0px;
+  right: 0px;
   z-index: 3;
 }
 
@@ -128,7 +128,7 @@ body{
 .escondido{
   display: none !important;
 }
-/* ----tela 2------- */
+
 .banner{
     margin-top: 69px;
     position: relative;
@@ -207,7 +207,14 @@ body{
     font-size: 20px;
     color: #000;
     font-weight: 700;
+    word-break: break-all;
 }
+
+.resposta p{
+    width: 329px;
+    text-overflow: ellipsis;
+}
+
 .opaco{
     opacity: 0.3;
 }
@@ -254,7 +261,9 @@ body{
     font-size: 18px;
     color: #484848;
     font-weight: 700;
-    line-height: 21px
+    line-height: 21px;
+    word-break: break-all;
+    text-overflow: ellipsis;
 }
 .botoes-finais{
     display: flex;   
@@ -278,29 +287,6 @@ body{
     font-size: 21px;
 }
 
-/* ----fim tela 2------- */
-@media(max-width:600px){
-    .caixa-criar-quizz{
-        width: 80%;
-    }
-    .titulo{
-        width: 80%;
-    }
-
-    .todosQuiz, .seusQuiz{
-        width: 80%;
-    }
-
-    .quiz{
-        width: 100%;
-    
-    }
-
-}
-
-
-
-/* TELA 3 */
 .tela3 .titulo3{
     width: 100%;
     text-align: center;
@@ -406,4 +392,47 @@ body{
     text-align: center;
     margin-top: 15px;
     
+}
+
+.botao:hover{
+    cursor: pointer;
+    background-color: #d13530;
+}
+
+.voltar-home:hover{
+    cursor: pointer;
+}
+
+@media(max-width:1100px){
+    .tela1{
+        width: 100%;
+    }
+    .tela1 img{
+        object-fit:cover;
+        object-position:100% 30%;
+    }
+    .caixa-criar-quizz{
+        width: 100%;
+    }
+    .titulo {
+        width: 100%;
+    }
+
+    .todosQuiz, .seusQuiz,.banner{
+        width: 100%;
+    }
+
+    .todosQuiz img,.seusQuiz img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .quiz{
+        width: 100%;
+    }
+
+    .banner{
+        width: 100%;
+    }
+
 }

@@ -1,9 +1,9 @@
 let idDoQuizzCriado=0;
 let listaDosMeusQuizzes=[];
-// Variaveis Globais
+
 let qtdPergunta = 0;
 let qtdNivel = 0
-// Referente aos dados finais
+
 let dadosFinal = {
 	title: 0,
 	image: 0,
@@ -37,6 +37,7 @@ function criarQuizz(){
 
     popularCriePerguntas(qtdPergunta);
     popularCrieNiveis(qtdNivel);
+    window.scrollTo(0,0);
 }
 
 function criarNiveis(){
@@ -86,7 +87,7 @@ function criarNiveis(){
 
     telaCriePerguntas.classList.add("escondido");
     telaNiveis.classList.remove("escondido");
-
+    window.scrollTo(0,0);
 }
 
 function quizzPronto(){
@@ -210,12 +211,12 @@ function checkHex(value){
 }
 
 function validURL(str) {
-    const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-      '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-      '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-      '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    const pattern = new RegExp('^(https?:\\/\\/)?'+ 
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ 
+      '((\\d{1,3}\\.){3}\\d{1,3}))'+ 
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ 
+      '(\\?[;&a-z\\d%_.~+=-]*)?'+ 
+      '(\\#[-a-z\\d_]*)?$','i'); 
     return !!pattern.test(str);
 }
 
@@ -227,6 +228,7 @@ function entrarNoQuizz(){
     tela2.classList.remove("escondido");
     listaAleatorizadora.sort(sorteador);
     quizzSelecionado()
+    window.scrollTo(0,0);
 }
 
 function abreCriarQuizz(){
@@ -235,4 +237,5 @@ function abreCriarQuizz(){
 
     fecharTela1.classList.add("escondido");
     abrirTela3.classList.remove("escondido");
+    window.scrollTo(0,0);
 }
